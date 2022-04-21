@@ -1,0 +1,10 @@
+{
+  "name": "Crypto FusedVR Docs",
+  "version": "0.1.0",
+  "dependencies": {
+    "docsify-cli": "latest"
+  },
+  "scripts": {
+    "start": "docsify serve docs"
+  }
+}
