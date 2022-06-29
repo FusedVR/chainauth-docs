@@ -1,5 +1,5 @@
 {
-  "name": "Crypto FusedVR Docs",
+  "name": "Crypto_FusedVR_Docs",
   "version": "0.1.0",
   "dependencies": {
     "docsify-cli": "latest"

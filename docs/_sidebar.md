@@ -1,10 +1,10 @@
 * Introduction
-  * [Why Chain Auth?](README.md)
-  * [Contribute to the Docs](intro/contribute.md)
+  * [Why Chain Auth?](/)
+  * [Contribute to the Docs](/intro/contribute.md)
 * Getting Started
-  * [Hello World](get-started/README.md)
-  * [App Console](get-started/apps.md)
-  * [API Reference](get-started/api.md)
+  * [Hello World](/get-started/)
+  * [App Console](/get-started/apps.md)
+  * [API Reference](/get-started/api.md)
 * Guides & Tutorials
-  * [Magic Link](tutorials/magiclink.md)
-  * [Game as NFT](tutorials/nftgame.md)
+  * [Magic Link](/tutorials/magiclink.md)
+  * [Game as NFT](/tutorials/nftgame.md)
