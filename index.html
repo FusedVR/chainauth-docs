@@ -1,173 +1,94 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="description" content="None" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/" />
-      <link rel="shortcut icon" href="img/favicon.ico" />
-    <title>FusedVR Chain Auth</title>
-    <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
-    
-      <script>
-        // Current page data
-        var mkdocs_page_name = "ChainAuth for Game Developers";
-        var mkdocs_page_input_path = "index.md";
-        var mkdocs_page_url = "/chainauth-docs/";
-      </script>
-    
-    <script src="js/jquery-3.6.0.min.js" defer></script>
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <style>
+        body { margin: 0; padding: 0; }
+        html { height: 100%; cursor: default; }
+        body {
+            font-family: "Roboto", sans-serif; /* Default font */
+            width: 100%; height: 100%;
+            text-align: center;
+            display: table;
+            opacity: 1;
+            animation: fadein 3s forwards;
+        }
+        h2 {
+            font-weight: 300;
+            margin-bottom: 25px;
+        }
+        img {
+            width: 25%; /* Image width */
+            border: 0; /* For IE */
+            /* Aspect ratio of image, gives initial dimension to prevent text moving down once image is loaded */
+            /* When changing logo, change this also */
+            aspect-ratio: 125 / 50;
+        }
+        #main {
+            vertical-align: middle;
+            display: table-cell;
+        }
+        /* Progress bar */
+        #progress {
+            width: 45%; /* Bar width */
+            margin: 0 auto;
+            border-radius: 10px; /* Roundness */
+            background-color: #a8a8a8; /* Background colour */
+            padding: 7px 5px;
+            /* border: 5px solid #a8a8a8; Border */
+        }
+        #fill {
+            padding: 2px 0;
+            background-color: #00b98b; /* Fill colour */
+            width: 85%; /* Bar percentage, change text below also */
+            border-radius: 25px; /* Roundness */
+            animation: proanimate 2s;
+        }
+        #barpercent h3 {
+            color: white; /* Bar percentage text colour */
+            margin: 0; padding: 0;
+            opacity: 1;
+            animation: fadein 3s forwards;
+        }
+
+        /* Fades in animation */
+        @keyframes fadein  {
+            from { opacity: 0; }
+        }
+        /* Animates bar on page load */
+        @keyframes proanimate {
+            from { width: 0%; }
+        }
+
+        @media screen and (max-width:600px) {
+            img {
+                width: 60%;
+            }
+            h1 {
+                font-size: 1.3em;
+            }
+            h2 {
+                margin: 1.1em;
+                font-size: 1.1em;
+            }
+            #progress {
+                width: 80%; /* Bar width */
+            }
+        }
+    </style>
+    <title>Coming Soon</title>
 </head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="." class="icon icon-home"> FusedVR Chain Auth
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href=".">ChainAuth for Game Developers</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#what-is-chainauth">What is ChainAuth?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#why-fusedvr-chainauth">Why FusedVR ChainAuth</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#use-cases">Use Cases</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Get started</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="get-started/">Hello World - Unity</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="get-started/api/">FusedVR Crypto APIs</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="get-started/apps/">Application Management</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Intro</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="intro/contribute/">Contribute to the Docs</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Tutorials</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="tutorials/magiclink/">Magic Link</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="tutorials/nftgame/">Sell Your Game as an NFT</a>
-                  </li>
-              </ul>
-      </div>
+<body>
+    <div id="main">
+        <img src="https://fusedvr.com/wp-content/uploads/2022/01/cropped-Light_Full.png" alt="Logo Image">
+        <h1>FusedVR Chain Auth</h1>
+        <h2>Our website is currently under construction. </h2>
+        <div id="progress"><div id="fill"><div id="barpercent"><h3>85%</h3></div></div></div>
+        <p/>
+        <a href="/docs"><button>Getting Started Documentation</button></a>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href=".">FusedVR Chain Auth</a>
-        
-      </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>ChainAuth for Game Developers</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
-              
-                <h1 id="chainauth-for-game-developers">ChainAuth for Game Developers</h1>
-<h2 id="what-is-chainauth">What is ChainAuth?</h2>
-<p>ChainAuth provides a solution to one of the many difficulties when developing a Web 3 standalone game : <strong>authenticating a player's non-custodial wallet to validate the tokens, NFTs, or other digital assets a player owns</strong>. The most secure way to prove that players own a given wallet is to ask them to sign a random message (nonce) with the wallet's private key and then cryptographically validate that the signature could only have been generated with the player's private key. However, without a backend solution, most wallets do not natively have a means to connect to with other standalone applications. While some solutions exist if the game or app exists in a browser or for just mobile wallets using Wallet Connect, ChainAuth provides the APIs and SDKs neccesary to validate your players' wallets whether they prefer using :
-- Mobile Wallet Apps i.e. Metamask <a href="https://play.google.com/store/apps/details?id=io.metamask&amp;hl=en_US&amp;gl=US">Android</a> or <a href="https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202">iOS</a>
-- Web Browser Wallets i.e. <a href="https://brave.com/wallet/">Brave</a> or <a href="https://metamask.io/">Metamask</a>
-- or Hardware Wallets i.e. <a href="https://www.ledger.com/metamask">Ledger</a> or <a href="https://wiki.trezor.io/Apps:MetaMask">Trezor</a></p>
-<p>ChainAuth enables developers to send a magic email to their players, which if opened from a mobile wallet will re-direct to the player's wallet for a signature. And if opened from the browser, it will request the signature from the web browser wallet / hardware wallet. Once a player signs the random nonce, a message is sent back to your game with the validated wallet address. Once validated, you can now read the state of the blockchain to see what NFTs, tokens, and assets a player has on-chain. </p>
-<p><a href="https://www.youtube.com/watch?v=8bQfi_mL6T4"><img alt="Connect to Any Wallet" src="https://img.youtube.com/vi/8bQfi_mL6T4/maxresdefault.jpg" /></a></p>
-<h2 id="why-fusedvr-chainauth">Why FusedVR ChainAuth</h2>
-<p>The ChainAuth solution by FusedVR makes it incredibly simple for developers to solve the authentication problem either using the <a href="https://github.com/FusedVR/web3-unity-sdk">Unity SDK</a> or via our API integration. For indie developers working in Unity, the SDK integration is really as simple as :</p>
-<ol>
-<li>Add the Web3 SDK to your project via the Package Manager</li>
-<li>Get the e-mail address of your player</li>
-<li>Call the login function in the SDK to send an email to the player and await their signature</li>
-</ol>
-<pre><code class="language-csharp">bool isLoggedIn = await Web3Manager.Login(&quot;email&quot;, &quot;appId&quot;);
-</code></pre>
-<h2 id="use-cases">Use Cases</h2>
-<p>The ChainAuth solution provides an efficient solution for passwordless authentication of players, which enables use cases that require just reading the state of the blockchain once authenticated. Such use cases could include:</p>
-<ul>
-<li>Determining if a player owns digital assets associated with the game i.e. avatar skins, in game items, or tokens.</li>
-<li>Determining if a player owns an NFT the represents ownership of the game</li>
-<li>Whether or not a player has interacted with a custom smart contract and the events emitted as a result</li>
-<li>Cross-Chain ownership of EVM assets, such as Binance Smart Chain, Polygon, or Ethereum</li>
-</ul>
-<p>The ChainAuth APIs and SDKs are <strong>NOT</strong> currently recommended for writing transactions to the blockchain from your game. For such use cases, it is recommended to create your own dApp outside of the standalone game that players can interact with such as a NFT marketplace. More work &amp; research is required to make the UX of the onboarding process as seamless as possible for new users, especially those who have never used the blockchain before. </p>
-              
-            </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="get-started/" class="btn btn-neutral float-right" title="Hello World - Unity">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-          
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-      <span><a href="get-started/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
-</div>
-    <script>var base_url = '.';</script>
-    <script src="js/theme_extra.js" defer></script>
-    <script src="js/theme.js" defer></script>
-      <script src="search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </body>
 </html>
-
-<!--
-MkDocs version : 1.3.1
-Build Date UTC : 2022-09-05 03:46:45.117551+00:00
--->

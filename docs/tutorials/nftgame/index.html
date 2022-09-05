@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/tutorials/nftgame/" />
-      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/docs/tutorials/nftgame/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
     <title>Sell Your Game as an NFT - FusedVR Chain Auth</title>
-    <link rel="stylesheet" href="../../css/theme.css" />
-    <link rel="stylesheet" href="../../css/theme_extra.css" />
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "Sell Your Game as an NFT";
-        var mkdocs_page_input_path = "tutorials/nftgame.md";
-        var mkdocs_page_url = "/chainauth-docs/tutorials/nftgame/";
+        var mkdocs_page_input_path = "docs/tutorials/nftgame.md";
+        var mkdocs_page_url = "/chainauth-docs/docs/tutorials/nftgame/";
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <script src="../../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
-      <script src="../../js/html5shiv.min.js"></script>
+      <script src="../../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
       <script>hljs.initHighlightingOnLoad();</script> 
@@ -31,51 +31,55 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> FusedVR Chain Auth
+          <a href="../../.." class="icon icon-home"> FusedVR Chain Auth
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../..">ChainAuth for Game Developers</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Get started</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../get-started/">Hello World - Unity</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../get-started/api/">FusedVR Crypto APIs</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../get-started/apps/">Application Management</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Intro</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../intro/contribute/">Contribute to the Docs</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <p class="caption"><span class="caption-text">Docs</span></p>
               <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../magiclink/">Magic Link</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../">ChainAuth for Game Developers</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Sell Your Game as an NFT</a>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Get started</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../get-started/">Hello World - Unity</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../get-started/api/">FusedVR Crypto APIs</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../get-started/apps/">Application Management</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Intro</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../intro/contribute/">Contribute to the Docs</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Tutorials</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#components">Components</a>
+                <li class="toctree-l2"><a class="reference internal" href="../magiclink/">Magic Link</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Sell Your Game as an NFT</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#components">Components</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#mint-your-own-nft-html-page">Mint your own NFT HTML Page</a>
+    <li class="toctree-l4"><a class="reference internal" href="#mint-your-own-nft-html-page">Mint your own NFT HTML Page</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#nft-smart-contract">NFT Smart Contract</a>
+    <li class="toctree-l4"><a class="reference internal" href="#nft-smart-contract">NFT Smart Contract</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#unity-project">Unity Project</a>
+    <li class="toctree-l4"><a class="reference internal" href="#unity-project">Unity Project</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#putting-it-all-together">Putting it all Together</a>
+    <li class="toctree-l3"><a class="reference internal" href="#putting-it-all-together">Putting it all Together</a>
     </li>
+    </ul>
+                </li>
     </ul>
                   </li>
               </ul>
@@ -86,13 +90,14 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">FusedVR Chain Auth</a>
+          <a href="../../..">FusedVR Chain Auth</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+    <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Docs &raquo;</li>
           <li>Tutorials &raquo;</li>
       <li>Sell Your Game as an NFT</li>
     <li class="wy-breadcrumbs-aside">
@@ -150,10 +155,10 @@
     
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+    <script>var base_url = '../../..';</script>
+    <script src="../../../js/theme_extra.js" defer></script>
+    <script src="../../../js/theme.js" defer></script>
+      <script src="../../../search/main.js" defer></script>
     <script defer>
         window.onload = function () {
             SphinxRtdTheme.Navigation.enable(true);
