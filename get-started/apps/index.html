@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/get-started/apps/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Application Management - FusedVR Chain Auth</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Application Management";
+        var mkdocs_page_input_path = "get-started/apps.md";
+        var mkdocs_page_url = "/chainauth-docs/get-started/apps/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> FusedVR Chain Auth
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">ChainAuth for Game Developers</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Get started</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Hello World - Unity</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api/">FusedVR Crypto APIs</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Application Management</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-app">Create App</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#billing">Billing</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#monitoring">Monitoring</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Intro</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../intro/contribute/">Contribute to the Docs</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/magiclink/">Magic Link</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/nftgame/">Sell Your Game as an NFT</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">FusedVR Chain Auth</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Get started &raquo;</li>
+      <li>Application Management</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="application-management">Application Management</h1>
+<p>Through the ChainAuth Console, you will be able to create, manage, and monitor the usage of the ChainAuth SDK or APIs for your game or application. Simply log-in into the console with an e-mail address and a Web 3 wallet to get started. </p>
+<h2 id="create-app">Create App</h2>
+<p>To start using the APIs and SDKs, you will need to create an application to receive an App ID, which can be used for the login function.</p>
+<pre><code class="language-csharp">bool isLoggedIn = await Web3Manager.Login(&quot;email&quot;, &quot;appId&quot;);
+</code></pre>
+<p>Creating an application just requires an <strong>App Image</strong> and <strong>App Name</strong>, which will be used to customize the login authentication email that is sent out to your players. </p>
+<p><img alt="Create Application" src="../../resources/createApp.png" /></p>
+<h2 id="billing">Billing</h2>
+<p>As a platform designed for Web 3 Game Developers, payments and billing for the service are managed in a Web 3 native way powered by <a href="https://www.cask.fi/">Cask.fi</a>. Cask Fi is a blockchain subscription payments service that will allow you to pay for access to the FusedVR APIs on a monthly cadence on the Polygon network with different US backed stablecoins. </p>
+<p>Because Cask Fi handles the payments, you will need to interact with their service to top off your funds to continue paying for FusedVR ChainAuth if you run out of funds in their wallet. </p>
+<h2 id="monitoring">Monitoring</h2>
+<p>Once you roll your game into production, you will want to monitor how your application is being used and see if you are approaching any limits. By clicking on an application from the dashboard, you will be able to view the application stats and edit your application as needed.</p>
+<p><img alt="Monitor Application" src="../../resources/showApp.png" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../api/" class="btn btn-neutral float-left" title="FusedVR Crypto APIs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../intro/contribute/" class="btn btn-neutral float-right" title="Contribute to the Docs">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../api/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../intro/contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
