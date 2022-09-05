@@ -1,0 +1,5 @@
+site_name: FusedVR Chain Auth
+site_url: https://fusedvr.github.io/chainauth-docs/
+theme: readthedocs
+docs_dir: documentation
+site_dir: docs
