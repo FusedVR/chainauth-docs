@@ -3,6 +3,9 @@
     .header_menu ul li a {
         font-size: 24px;
     }
+    .hero_img img {
+        padding-left: 20px;
+    }
 }
 
 /* Normal desktop :992px. */
@@ -39,7 +42,9 @@
     .about_text {
         margin: 80px 0;
     }
-    
+    .hero_img img {
+        padding-left: 0px;
+    }
 }
 
  
@@ -84,6 +89,9 @@
     .footer_area {
         margin-top: 50px;
     }
+    .hero_img img {
+        padding-left: 0px;
+    }
 }
 
  
@@ -116,6 +124,9 @@
     .hero_img {
         margin-top: 40px;
     }
+    .header_menu ul li {
+        padding-left: 0;
+    }
     .header_menu ul li a {
         font-size: 18px;
     }
@@ -147,6 +158,9 @@
     }
     .footer_area {
         margin-top: 40px;
+    }
+    .hero_img img {
+        padding-left: 0px;
     }
 }
 /* Large Mobile :480px. */

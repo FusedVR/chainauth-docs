@@ -186,6 +186,7 @@ li {
 }
 .hero_img img {
 	width: 100%;
+	padding-left: 50px;
 }
 /* about area style in here */
 .about_img img {
@@ -197,7 +198,7 @@ li {
 }
 
 .about_text p {
-	font-size: 32px;
+	font-size: 30px;
 	line-height: 38px;
 	font-weight: 400;
 	margin-bottom: 20px;
@@ -215,7 +216,7 @@ li {
 	padding-left: 40px;
 }
 .about_text {
-	margin: 110px 0;
+	margin: 75px 0;
 }
 
 /* footer_area style in here  */
