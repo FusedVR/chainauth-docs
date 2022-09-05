@@ -1,94 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name=viewport content="width=device-width, initial-scale=1">
-    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-    <style>
-        body { margin: 0; padding: 0; }
-        html { height: 100%; cursor: default; }
-        body {
-            font-family: "Roboto", sans-serif; /* Default font */
-            width: 100%; height: 100%;
-            text-align: center;
-            display: table;
-            opacity: 1;
-            animation: fadein 3s forwards;
-        }
-        h2 {
-            font-weight: 300;
-            margin-bottom: 25px;
-        }
-        img {
-            width: 25%; /* Image width */
-            border: 0; /* For IE */
-            /* Aspect ratio of image, gives initial dimension to prevent text moving down once image is loaded */
-            /* When changing logo, change this also */
-            aspect-ratio: 125 / 50;
-        }
-        #main {
-            vertical-align: middle;
-            display: table-cell;
-        }
-        /* Progress bar */
-        #progress {
-            width: 45%; /* Bar width */
-            margin: 0 auto;
-            border-radius: 10px; /* Roundness */
-            background-color: #a8a8a8; /* Background colour */
-            padding: 7px 5px;
-            /* border: 5px solid #a8a8a8; Border */
-        }
-        #fill {
-            padding: 2px 0;
-            background-color: #00b98b; /* Fill colour */
-            width: 85%; /* Bar percentage, change text below also */
-            border-radius: 25px; /* Roundness */
-            animation: proanimate 2s;
-        }
-        #barpercent h3 {
-            color: white; /* Bar percentage text colour */
-            margin: 0; padding: 0;
-            opacity: 1;
-            animation: fadein 3s forwards;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FusedVR</title>
 
-        /* Fades in animation */
-        @keyframes fadein  {
-            from { opacity: 0; }
-        }
-        /* Animates bar on page load */
-        @keyframes proanimate {
-            from { width: 0%; }
-        }
-
-        @media screen and (max-width:600px) {
-            img {
-                width: 60%;
-            }
-            h1 {
-                font-size: 1.3em;
-            }
-            h2 {
-                margin: 1.1em;
-                font-size: 1.1em;
-            }
-            #progress {
-                width: 80%; /* Bar width */
-            }
-        }
-    </style>
-    <title>Coming Soon</title>
-</head>
+    <!-- all css in here --> 
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="assets/css/style.css">  
+    <link rel="stylesheet" href="assets/css/responsive.css">  
+  
+</head> 
 <body>
-    <div id="main">
-        <img src="https://fusedvr.com/wp-content/uploads/2022/01/cropped-Light_Full.png" alt="Logo Image">
-        <h1>FusedVR Chain Auth</h1>
-        <h2>Our website is currently under construction. </h2>
-        <div id="progress"><div id="fill"><div id="barpercent"><h3>85%</h3></div></div></div>
-        <p/>
-        <a href="docs"><button>Getting Started Documentation</button></a>
+
+    <!-- header_area html start in here  -->
+    <div class="header_area">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-4">
+                    <div class="main_logo">
+                        <a href="index.html">
+                            <img src="assets/img/logo/logo.png" alt="main-logo">
+                            FusedVR
+                        </a>
+                    </div>
+                </div> 
+                <div class="col-lg-6 col-md-8">
+                    <div class="header_menu">
+                        <nav>
+                            <ul>
+                                <li><a href="#">Getting Started</a></li>
+                                <li><a href="#">APIs</a></li>
+                                <li><a href="#">Authenticatation</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <!-- header_area html end in here  -->
+
+    <!-- hero_area html start in here  -->
+    <div class="hero_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero_inner">
+                        <h1>Chain Auth for Crypto Game Dev</h1>
+                        <p>Empower players to securely bring their Web 3 NFTs and Tokens to your Game!</p>
+                        <a href="#">Get Started</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero_img">
+                        <img src="assets/img/hero-area/placeholder.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- hero_area html start in here  -->
+
+
+    <!-- about-area html start in here  -->
+    <div class="about_area">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 col-lg-5">
+                    <div class="about_img">
+                        <img src="assets/img/about-area/img1.svg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-7">
+                    <div class="about_text apl">
+                        <h1>Streamlined APIs and SDKs</h1>
+                        <p>That work natively with ANY gaming platform to login and verify NFT ownership for players:</p>
+                        <ul>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">PC</li>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Android or iOS</li>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Virtual or Augmented Reality (VR/AR)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-7 order-10 order-md-1">
+                    <div class="about_text">
+                        <h1>Passwordless Sign-On</h1>
+                        <p>Players receive an e-mail from your app that links them to their Native Mobile Wallet or Web Browser Extension Wallet:</p>
+                        <ul>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Metamask</li>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Wallet Connect</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-5 col-lg-5 order-1 order-md-10">
+                    <div class="about_img">
+                        <img src="assets/img/about-area/img2.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-md-5 col-lg-5">
+                    <div class="about_img">
+                        <img src="assets/img/about-area/img3.svg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-7 col-lg-7">
+                    <div class="about_text apl">
+                        <h1>Multi-Chain EVM Compatability</h1>
+                        <p>Integration with the most popularly used Web3 blockchains :</p>
+                        <ul>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Ethereum</li>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Binance Smart Chain</li>
+                            <li><img src="assets/img/icon/iconscheck.svg" alt="">Polygon</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about-area html end in here  -->
+
+    <!-- footer_area html start in here -->
+    <footer>
+        <div class="footer_area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="main_logo">
+                            <a href="index.html">
+                                <img src="assets/img/logo/logo.png" alt="main-logo">
+                                FusedVR
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="fotter_widget text-right">
+                            <ul class="footer_social">
+                                <li><a href="#"><img src="assets/img/icon/twitter.png" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/icon/linkined.png" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/icon/youtube.png" alt=""></a></li>
+                            </ul>
+                            <h6>&copy; FusedVR, 2022</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer_area html end in here -->
+
+
+    <!-- main & plugines js -->
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
 </body>
 </html>
