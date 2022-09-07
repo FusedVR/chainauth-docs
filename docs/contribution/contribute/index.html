@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/docs/get-started/apps/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/docs/contribution/contribute/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Application Management - FusedVR Chain Auth</title>
+    <title>Contribute to the Docs - FusedVR Chain Auth</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Application Management";
-        var mkdocs_page_input_path = "docs/get-started/apps.md";
-        var mkdocs_page_url = "/chainauth-docs/docs/get-started/apps/";
+        var mkdocs_page_name = "Contribute to the Docs";
+        var mkdocs_page_input_path = "docs/contribution/contribute.md";
+        var mkdocs_page_url = "/chainauth-docs/docs/contribution/contribute/";
       </script>
     
     <script src="../../../js/jquery-3.6.0.min.js" defer></script>
@@ -44,32 +44,28 @@
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../../">ChainAuth for Game Developers</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Get started</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Contribution</a>
     <ul class="current">
-                <li class="toctree-l2"><a class="reference internal" href="../">Hello World - Unity</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="../api/">FusedVR Crypto APIs</a>
-                </li>
-                <li class="toctree-l2 current"><a class="reference internal current" href="./">Application Management</a>
+                <li class="toctree-l2 current"><a class="reference internal current" href="./">Contribute to the Docs</a>
     <ul class="current">
-    <li class="toctree-l3"><a class="reference internal" href="#create-app">Create App</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#billing">Billing</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#monitoring">Monitoring</a>
+    <li class="toctree-l3"><a class="reference internal" href="#importance-of-documentation">Importance of Documentation</a>
     </li>
     </ul>
                 </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Intro</a>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Get started</a>
     <ul>
-                <li class="toctree-l2"><a class="reference internal" href="../../intro/contribute/">Contribute to the Docs</a>
+                <li class="toctree-l2"><a class="reference internal" href="../../get-started/">Getting Started</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../../get-started/api/">FusedVR Crypto APIs</a>
                 </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">Tutorials</a>
     <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../../tutorials/helloworld/">Hello World - Unity</a>
+                </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/magiclink/">Magic Link</a>
                 </li>
                 <li class="toctree-l2"><a class="reference internal" href="../../tutorials/nftgame/">Sell Your Game as an NFT</a>
@@ -92,8 +88,8 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Docs &raquo;</li>
-          <li>Get started &raquo;</li>
-      <li>Application Management</li>
+          <li>Contribution &raquo;</li>
+      <li>Contribute to the Docs</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -102,26 +98,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="application-management">Application Management</h1>
-<p>Through the ChainAuth Console, you will be able to create, manage, and monitor the usage of the ChainAuth SDK or APIs for your game or application. Simply log-in into the console with an e-mail address and a Web 3 wallet to get started. </p>
-<h2 id="create-app">Create App</h2>
-<p>To start using the APIs and SDKs, you will need to create an application to receive an App ID, which can be used for the login function.</p>
-<pre><code class="language-csharp">bool isLoggedIn = await Web3Manager.Login(&quot;email&quot;, &quot;appId&quot;);
-</code></pre>
-<p>Creating an application just requires an <strong>App Image</strong> and <strong>App Name</strong>, which will be used to customize the login authentication email that is sent out to your players. </p>
-<p><img alt="Create Application" src="../../resources/createApp.png" /></p>
-<h2 id="billing">Billing</h2>
-<p>As a platform designed for Web 3 Game Developers, payments and billing for the service are managed in a Web 3 native way powered by <a href="https://www.cask.fi/">Cask.fi</a>. Cask Fi is a blockchain subscription payments service that will allow you to pay for access to the FusedVR APIs on a monthly cadence on the Polygon network with different US backed stablecoins. </p>
-<p>Because Cask Fi handles the payments, you will need to interact with their service to top off your funds to continue paying for FusedVR ChainAuth if you run out of funds in their wallet. </p>
-<h2 id="monitoring">Monitoring</h2>
-<p>Once you roll your game into production, you will want to monitor how your application is being used and see if you are approaching any limits. By clicking on an application from the dashboard, you will be able to view the application stats and edit your application as needed.</p>
-<p><img alt="Monitor Application" src="../../resources/showApp.png" /></p>
+                <h1 id="contribute-to-the-docs">Contribute to the Docs</h1>
+<p>ChainAuth is a solution designed to help accelerate Web 3 in Gaming and the Metaverse and has really been built out as a passion project after listening to so many of you in the FusedVR community running into the issue of how to connect your amazing games to the blockchain. </p>
+<p>As a project forged from the ashes of developer pain points, we want to be able to document this solution and use cases to help future developers quickly bootstrap themselves into this space. And as the project continues to grow and expand, we will need help to make sure the documentation stays up to date and ensures a smooth experience for upcoming and exisiting developers. If you have suggestions for future documentation or see a bug in the exisiting documentation, please let us know either on Discord or even better if you can submit a Pull Request to the open source Github Repo for the documentation!</p>
+<p><a href="https://github.com/FusedVR/gamefi-docs/">https://github.com/FusedVR/gamefi-docs/</a></p>
+<p><a href="https://discord.gg/rV8fEAmG5B">Join the Discord Community</a></p>
+<h2 id="importance-of-documentation">Importance of Documentation</h2>
+<p>Documentation is maybe the most underappreciated but extremely vital resource for developers to efficiently use new tools, APIs, and SDKs. Documentation welcomes new developers and gets them up to speed. Documentation provides an easy access reference for exisiting developers to look up information. It is at the core of any software service and ChainAuth is no exception. </p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../api/" class="btn btn-neutral float-left" title="FusedVR Crypto APIs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../intro/contribute/" class="btn btn-neutral float-right" title="Contribute to the Docs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../" class="btn btn-neutral float-left" title="ChainAuth for Game Developers"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../get-started/" class="btn btn-neutral float-right" title="Getting Started">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -144,10 +133,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../api/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../intro/contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../get-started/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
