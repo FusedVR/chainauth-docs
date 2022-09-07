@@ -1,5 +1,10 @@
-# Hello World - Unity
+# Getting Started
 
-The FusedVR ChainAuth APIs are designed to be as simple as possible to integrate into any game or application. Below is a short video documenting the process of integrating the SDK into a brand new Unity project, at which point you can check to see what NFTs the player owns. 
+The FusedVR ChainAuth APIs are designed to be as simple as possible to integrate into any game or application. 
 
-[![FusedVR Crypto Gaming](https://img.youtube.com/vi/sCmFr3z1Wxk/maxresdefault.jpg)](https://www.youtube.com/watch?v=sCmFr3z1Wxk) 
+First you will need an Application ID for your project. As this project is in beta, you will need to request an application id. As the next phase of this project, we intend to have a dashboard where you can create, manage, and gain insights into your application. For the time being, please request an application id on the [FusedVR Discord](https://discord.com/invite/rV8fEAmG5B) in the crypto channel. 
+
+Once you have an Application ID, you can start using the APIs or the Unity SDK to start making requests and authenticating players. 
+
+For a guide on how to use the Unity SDK, please refer to the [Hello World tutorial]("/docs/tutorials/magiclink/"). 
+
