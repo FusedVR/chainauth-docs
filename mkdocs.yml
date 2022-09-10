@@ -3,3 +3,12 @@ site_url: https://fusedvr.github.io/chainauth-docs/
 theme: readthedocs
 docs_dir: documentation
 site_dir: site
+nav:
+  - 'docs/index.md'
+  - Get Started : 'docs/get-started/index.md'
+  - FusedVR Crypto APIs : 'https://api-crypto.fusedvr.com'
+  - Contribute to the Docs: 'docs/contribution/index.md'
+  - "Tutorials":
+    - Hello World : 'docs/tutorials/helloworld.md'
+    - Using Magic Link : 'docs/tutorials/magiclink.md'
+    - NFT Tickets for Games : 'docs/tutorials/nftgame.md'
