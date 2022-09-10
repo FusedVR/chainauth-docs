@@ -40,9 +40,8 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Docs</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">ChainAuth for Game Developers</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">ChainAuth for Game Developers</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#what-is-chainauth">What is ChainAuth?</a>
     </li>
@@ -51,30 +50,27 @@
     <li class="toctree-l2"><a class="reference internal" href="#use-cases">Use Cases</a>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="get-started/">Get Started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://api-crypto.fusedvr.com">FusedVR Crypto APIs</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="contribution/">Contribute to the Docs</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorials/helloworld/">Hello World</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Contribution</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="contribution/contribute/">Contribute to the Docs</a>
-                </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorials/magiclink/">Using Magic Link</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Get started</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="get-started/">Getting Started</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="get-started/api/">FusedVR Crypto APIs</a>
-                </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="#">Tutorials</a>
-    <ul>
-                <li class="toctree-l2"><a class="reference internal" href="tutorials/helloworld/">Hello World - Unity</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="tutorials/magiclink/">Magic Link</a>
-                </li>
-                <li class="toctree-l2"><a class="reference internal" href="tutorials/nftgame/">Sell Your Game as an NFT</a>
-                </li>
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="tutorials/nftgame/">NFT Tickets for Games</a>
                   </li>
               </ul>
       </div>
@@ -91,7 +87,6 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>Docs &raquo;</li>
       <li>ChainAuth for Game Developers</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -104,7 +99,7 @@
                 <h1 id="chainauth-for-game-developers">ChainAuth for Game Developers</h1>
 <h2 id="what-is-chainauth">What is ChainAuth?</h2>
 <p>ChainAuth provides a simplied solution to Game Developers for one of the many difficulties when developing a Web 3 standalone game : <strong>authenticating a player's non-custodial wallet to prove ownership of the tokens, NFTs, or other digital assets a player owns</strong>. <em>Why is this a challenge?</em> Players can own digital assets across a wide range of wallets (Metamask, Coinbase, Trust Wallet, etc.) on various different blockchains (ethereum, binance, polygon, etc.) and games should be flexible to support as many players as possible. One common workaround to this problem is to have the game (or typically a 3rd party service) manage the wallet on behalf of players, known as a custodial wallet. But this fundamentally looks no different from Web 2 and defeats the purpose of enabling players to have true ownership of their assets in the metaverse. </p>
-<p>The only secure way to prove that players own a given wallet is to ask them to sign a random message (nonce) with the wallet's private key and then cryptographically validate that the signature could only have been generated with the player's private key. However, without a backend solution, most wallets do not natively have a means to connect with other standalone applications. While some solutions exist if the game or app exists in a browser or for just mobile wallets using Wallet Connect, ChainAuth provides the APIs and SDKs neccesary to validate your players' wallets whether they prefer using :
+<p>The only <strong>secure</strong> way to prove that players own a given wallet is to ask them to sign a random message (nonce) with the wallet's private key and then cryptographically validate that the signature could only have been generated with the player's private key. However, without a backend solution, most wallets do not natively have a means to connect with other standalone applications. While some solutions exist if the game or app exists in a browser or for just mobile wallets using Wallet Connect, ChainAuth provides the APIs and SDKs neccesary to validate your players' wallets whether they prefer using :
 - Mobile Wallet Apps i.e. Metamask <a href="https://play.google.com/store/apps/details?id=io.metamask&amp;hl=en_US&amp;gl=US">Android</a> or <a href="https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202">iOS</a>
 - Web Browser Wallets i.e. <a href="https://brave.com/wallet/">Brave</a> or <a href="https://metamask.io/">Metamask</a>
 - or Hardware Wallets i.e. <a href="https://www.ledger.com/metamask">Ledger</a> or <a href="https://wiki.trezor.io/Apps:MetaMask">Trezor</a></p>
@@ -117,9 +112,12 @@
 <li>Call the Register Function (optionally with an e-mail address) with your application id to get a manger instance with the code</li>
 <li>Call the Login function in the SDK with that code and await the player's authorization signature</li>
 </ol>
-<pre><code class="language-csharp">Web3Manager instance = await Web3Manager.Register(&quot;appId&quot;, &quot;optional email&quot;);
-if (instance.Login()){
-    //call Web 3 apis for tokens and nfts
+<pre><code class="language-csharp">Web3Manager manager = await Web3Manager.Register(&quot;email&quot;, &quot;appId&quot;);
+Debug.LogError( await manager.GetMagicLink() );
+
+if (await manager.AwaitLogin()) {
+    //your game logic here
+    CallAPIs(manager, Web3Manager.CHAIN.eth);
 }
 </code></pre>
 <h2 id="use-cases">Use Cases</h2>
@@ -135,7 +133,7 @@ if (instance.Login()){
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="contribution/contribute/" class="btn btn-neutral float-right" title="Contribute to the Docs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="get-started/" class="btn btn-neutral float-right" title="Get Started">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -159,7 +157,7 @@ if (instance.Login()){
     
     
     
-      <span><a href="contribution/contribute/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="get-started/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
