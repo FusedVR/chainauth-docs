@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/docs/tutorials/helloworld/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Hello World - FusedVR Chain Auth</title>
+    <title>Hello World - Unity SDK - FusedVR Chain Auth</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Hello World";
+        var mkdocs_page_name = "Hello World - Unity SDK";
         var mkdocs_page_input_path = "docs/tutorials/helloworld.md";
         var mkdocs_page_url = "/chainauth-docs/docs/tutorials/helloworld/";
       </script>
@@ -49,22 +49,27 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="" href="https://api-crypto.fusedvr.com">FusedVR Crypto APIs</a>
-                </li>
-              </ul>
-              <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../../contribution/">Contribute to the Docs</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Hello World</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Hello World - Unity SDK</a>
     <ul class="current">
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../magiclink/">Using Magic Link</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../nftgame/">NFT Tickets for Games</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Resources</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="https://api-crypto.fusedvr.com">FusedVR Crypto APIs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://github.com/FusedVR/web3-unity-sdk">FusedVR Unity SDK</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="https://link.fusedvr.com">FusedVR Code Link</a>
                   </li>
               </ul>
       </div>
@@ -82,7 +87,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Tutorials &raquo;</li>
-      <li>Hello World</li>
+      <li>Hello World - Unity SDK</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -92,8 +97,14 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="hello-world-unity">Hello World - Unity</h1>
-<p>The FusedVR ChainAuth APIs are designed to be as simple as possible to integrate into any game or application. Below is a short video documenting the process of integrating the SDK into a brand new Unity project, at which point you can check to see what NFTs the player owns. </p>
-<p><a href="https://www.youtube.com/watch?v=sCmFr3z1Wxk"><img alt="FusedVR Crypto Gaming" src="https://img.youtube.com/vi/sCmFr3z1Wxk/maxresdefault.jpg" /></a> </p>
+<p>The FusedVR ChainAuth Unity SDK are designed to be as simple as possible to integrate into any game or application. Below is a short video documenting the process of integrating the SDK into a brand new Unity project, at which point you can check to see what NFTs the player owns. </p>
+<pre><code class="language-csharp">Web3Manager manager = await Web3Manager.Register(&quot;appId&quot;, &quot;email&quot;);
+
+if (await manager.AwaitLogin()) {
+    //your game logic here
+    CallAPIs(manager, Web3Manager.CHAIN.eth);
+}
+</code></pre>
               
             </div>
           </div><footer>
