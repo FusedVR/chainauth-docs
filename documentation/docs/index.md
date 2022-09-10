@@ -22,7 +22,7 @@ The ChainAuth solution by FusedVR is designed by a developers to make it incredi
 3. Call the Login function in the SDK with that code and await the player's authorization signature
 
 ```csharp
-Web3Manager manager = await Web3Manager.Register("email", "appId");
+Web3Manager manager = await Web3Manager.Register("appId", "email");
 Debug.LogError( await manager.GetMagicLink() );
 
 if (await manager.AwaitLogin()) {

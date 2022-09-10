@@ -6,9 +6,13 @@ site_dir: site
 nav:
   - 'docs/index.md'
   - Get Started : 'docs/get-started/index.md'
-  - FusedVR Crypto APIs : 'https://api-crypto.fusedvr.com'
   - Contribute to the Docs: 'docs/contribution/index.md'
   - "Tutorials":
-    - Hello World : 'docs/tutorials/helloworld.md'
+    - Hello World - Unity SDK : 'docs/tutorials/helloworld.md'
     - Using Magic Link : 'docs/tutorials/magiclink.md'
     - NFT Tickets for Games : 'docs/tutorials/nftgame.md'
+  - "Resources":
+    - FusedVR Crypto APIs : 'https://api-crypto.fusedvr.com'
+    - FusedVR Unity SDK : 'https://github.com/FusedVR/web3-unity-sdk'
+    - FusedVR Code Link : "https://link.fusedvr.com"
+
