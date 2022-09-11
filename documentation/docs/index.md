@@ -18,14 +18,16 @@ ChainAuth enables developers to **either** provide players a one time code for a
 The ChainAuth solution by FusedVR is designed by a developers to make it incredibly simple for developers to solve the authentication problem either using the [Unity SDK](https://github.com/FusedVR/web3-unity-sdk) or via our API integration. For indie developers working in Unity, the SDK integration is as simple as :
 
 1. Add the Web3 SDK to your project via the Package Manager
-2. Call the Register Function (optionally with an e-mail address) with your application id to get a manger instance with the code
+2. Call the Register Function with a unique identified and your application id to get a manager instance
+3. Give code from the Register Function to the player in order to input on [https://link.fusedvr.com](https://link.fusedvr.com)
 3. Call the Login function in the SDK with that code and await the player's authorization signature
 
 ```csharp
-Web3Manager manager = await Web3Manager.Register("appId", "email");
-Debug.LogError( await manager.GetMagicLink() );
+Web3Manager manager = await Web3Manager.Register("unique id", "appId");
+Debug.Log(manager.RegisterCode); //auth code for player to input
+Debug.Log( await manager.GetMagicLink() ); //link version of code
 
-if (await manager.AwaitLogin()) {
+if (await manager.AwaitLogin()) { //await for player to login
 	//your game logic here
     CallAPIs(manager, Web3Manager.CHAIN.eth);
 }
