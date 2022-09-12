@@ -1,4 +1,4 @@
-# Hello World - Unity
+# Unity SDK Guide
 
 The FusedVR ChainAuth Unity SDK is designed to be as simple as possible to integrate into any game or application. The goal of the SDK is to enable you to authenticate your player's Web 3 wallets and enable them to prove ownership of their digital assets like tokens & NFTs. This guide will walk you through how to use the SDK to get access to the SDK, authenticate a player, and then verify the assets the player owns, which you can use however you like in the game. 
 
@@ -82,7 +82,7 @@ Dictionary<string, string> tokenContent = Web3Manager.DecodeJWT(token); //decode
 
 ### Player Address
 
-As mentioned above, the player's authenticated wallet address is stored within the token. To make it easier to get the player's address, a wrapper function is provided. 
+As mentioned above, the player's authenticated wallet address is stored within the authentication token. To make it easier to get the player's address, a wrapper function is provided. 
 
 ```csharp
 string address = mngr.GetAddress(); //get the wallet address used for authentication
@@ -90,7 +90,7 @@ string address = mngr.GetAddress(); //get the wallet address used for authentica
 
 ### Select Chain
 
-The FusedVR Crypto supports a subset of EVM compatiable blockchains & testnets, which stored in the CHAIN sub-class. When you call any of the following functions, you will be required to pass an instance of the CHAIN object, which will indicate which blockchain to query. Here are the currently supported chains:
+The FusedVR Crypto APIs support a subset of EVM compatiable blockchains & testnets, which stored in the CHAIN sub-class. When you call any of the following functions, you will be required to pass an instance of the CHAIN object, which will indicate which blockchain to query. Here are the currently supported chains:
 
 ```csharp
 Web3Manager.CHAIN.eth
@@ -105,20 +105,59 @@ Web3Manager.CHAIN.bsctestnet
 
 ### Get Native Balance
 
+Once a player is authenticated, you can pick any of the supported chains to retrive the native balance in the native currency of the player's wallet address. For example, on the ethereum blockchain, you would receive the balance of the player in [Wei](https://www.investopedia.com/terms/w/wei.asp). 
+
 ```csharp
 string balance = await mngr.GetNativeBalance(chain);
 ```
 
 ### Get ERC-20 Tokens
 
+Once a player is authenticated, you can get the full list of ERC-20 Tokens (or equivalent on other chains) that a player owns. The result is an array of all owned tokens and the attributes of each token. 
 
 ```csharp
 List<Dictionary<string, string>> erc20s = await mngr.GetERC20Tokens(chain);
 ```
+In JSON format, here is an example of the returned attributes of each ERC-20 token
+
+```json
+  {
+    "token_address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "name": "Circle USDC",
+    "symbol": "USDC",
+    "logo": "ipfs://logo-url.png",
+    "thumbnail": "ipfs://thumbnail-logo-url.png",
+    "decimals": 6,
+    "balance": "101"
+  }
+```
 
 ### Get NFT Tokens
 
+Once a player is authenticated, you can get the full list of NFTs (ERC-721 or ERC-1155) that a player owns. The result is an array of all owned tokens and the attributes of each token. 
 
 ```csharp
 List<Dictionary<string, string>> nfts = await mngr.GetNFTTokens(chain);
+```
+
+```json
+  {
+    "token_address": "0x4d66898952d879c27bdadb5876f38e38a083eff8",
+    "token_id": "token1",
+    "owner_of": "0x74bcd46288e661ecea04992d5e8fbe6c29cf6f64",
+    "block_number": "27529244",
+    "block_number_minted": "22171688",
+    "amount": "1",
+    "contract_type": "ERC1155",
+    "name": "Axie",
+    "symbol": "AXS",
+    "token_uri": "https://raw.githubusercontent.com/FusedVR/nft.games/master/1/meta.json",
+    "metadata": {
+      "\\n  \\\"name\\\"": "\\\"FusedVR Token\\\"",
+      "\\n  \\\"description\\\"": "\\\"This token is an example ERC-1155 asset that can be used to trigger streaming with FusedVR Render Streaming. In other words",
+      "think of this as token representation of purchasing a game.\\\"": null,
+      "\\n  \\\"image\\\"": "\\\"https://raw.githubusercontent.com/FusedVR/nft.games/master/1/FusedVR.png\\\"",
+      "\\n  \\\"external_url\\\"": "\\\"https://fusedvr.com/rendering\\\"\\n"
+    }
+  }
 ```

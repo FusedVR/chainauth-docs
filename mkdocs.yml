@@ -8,8 +8,7 @@ nav:
   - Get Started : 'docs/get-started/index.md'
   - Contribute to the Docs: 'docs/contribution/index.md'
   - "Tutorials":
-    - Hello World - Unity SDK : 'docs/tutorials/helloworld.md'
-    - Using Magic Link : 'docs/tutorials/magiclink.md'
+    - Unity SDK Guide : 'docs/tutorials/unitysdk.md'
     - NFT Tickets for Games : 'docs/tutorials/nftgame.md'
   - "Resources":
     - FusedVR Crypto APIs : 'https://api-crypto.fusedvr.com'
