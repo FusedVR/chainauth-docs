@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/docs/tutorials/helloworld/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://fusedvr.github.io/chainauth-docs/docs/tutorials/unitysdk/" />
       <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Hello World - Unity SDK - FusedVR Chain Auth</title>
+    <title>Unity SDK Guide - FusedVR Chain Auth</title>
     <link rel="stylesheet" href="../../../css/theme.css" />
     <link rel="stylesheet" href="../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Hello World - Unity SDK";
-        var mkdocs_page_input_path = "docs/tutorials/helloworld.md";
-        var mkdocs_page_url = "/chainauth-docs/docs/tutorials/helloworld/";
+        var mkdocs_page_name = "Unity SDK Guide";
+        var mkdocs_page_input_path = "docs/tutorials/unitysdk.md";
+        var mkdocs_page_url = "/chainauth-docs/docs/tutorials/unitysdk/";
       </script>
     
     <script src="../../../js/jquery-3.6.0.min.js" defer></script>
@@ -54,7 +54,7 @@
               </ul>
               <p class="caption"><span class="caption-text">Tutorials</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Hello World - Unity SDK</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Unity SDK Guide</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#setup-sdk">Setup SDK</a>
     </li>
@@ -86,8 +86,6 @@
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../magiclink/">Using Magic Link</a>
-                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../nftgame/">NFT Tickets for Games</a>
                   </li>
               </ul>
@@ -115,7 +113,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
           <li>Tutorials &raquo;</li>
-      <li>Hello World - Unity SDK</li>
+      <li>Unity SDK Guide</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -124,7 +122,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="hello-world-unity">Hello World - Unity</h1>
+                <h1 id="unity-sdk-guide">Unity SDK Guide</h1>
 <p>The FusedVR ChainAuth Unity SDK is designed to be as simple as possible to integrate into any game or application. The goal of the SDK is to enable you to authenticate your player's Web 3 wallets and enable them to prove ownership of their digital assets like tokens &amp; NFTs. This guide will walk you through how to use the SDK to get access to the SDK, authenticate a player, and then verify the assets the player owns, which you can use however you like in the game. </p>
 <h2 id="setup-sdk">Setup SDK</h2>
 <p>The ChainAuth Unity SDK is avaliable on <a href="https://github.com/FusedVR/web3-unity-sdk">Github as an open source project</a>. To use the SDK, you will require an Application ID, which you can request on the <a href="https://discord.com/invite/rV8fEAmG5B">FusedVR Discord Server</a>.</p>
@@ -171,11 +169,11 @@ string magicLink = await manager.GetMagicLink(); //gets the magic link for the p
 Dictionary&lt;string, string&gt; tokenContent = Web3Manager.DecodeJWT(token); //decode contents of the token as a key-value pair
 </code></pre>
 <h3 id="player-address">Player Address</h3>
-<p>As mentioned above, the player's authenticated wallet address is stored within the token. To make it easier to get the player's address, a wrapper function is provided. </p>
+<p>As mentioned above, the player's authenticated wallet address is stored within the authentication token. To make it easier to get the player's address, a wrapper function is provided. </p>
 <pre><code class="language-csharp">string address = mngr.GetAddress(); //get the wallet address used for authentication
 </code></pre>
 <h3 id="select-chain">Select Chain</h3>
-<p>The FusedVR Crypto supports a subset of EVM compatiable blockchains &amp; testnets, which stored in the CHAIN sub-class. When you call any of the following functions, you will be required to pass an instance of the CHAIN object, which will indicate which blockchain to query. Here are the currently supported chains:</p>
+<p>The FusedVR Crypto APIs support a subset of EVM compatiable blockchains &amp; testnets, which stored in the CHAIN sub-class. When you call any of the following functions, you will be required to pass an instance of the CHAIN object, which will indicate which blockchain to query. Here are the currently supported chains:</p>
 <pre><code class="language-csharp">Web3Manager.CHAIN.eth
 Web3Manager.CHAIN.ropsten
 Web3Manager.CHAIN.rinkeby
@@ -186,20 +184,54 @@ Web3Manager.CHAIN.bsc
 Web3Manager.CHAIN.bsctestnet
 </code></pre>
 <h3 id="get-native-balance">Get Native Balance</h3>
+<p>Once a player is authenticated, you can pick any of the supported chains to retrive the native balance in the native currency of the player's wallet address. For example, on the ethereum blockchain, you would receive the balance of the player in <a href="https://www.investopedia.com/terms/w/wei.asp">Wei</a>. </p>
 <pre><code class="language-csharp">string balance = await mngr.GetNativeBalance(chain);
 </code></pre>
 <h3 id="get-erc-20-tokens">Get ERC-20 Tokens</h3>
+<p>Once a player is authenticated, you can get the full list of ERC-20 Tokens (or equivalent on other chains) that a player owns. The result is an array of all owned tokens and the attributes of each token. </p>
 <pre><code class="language-csharp">List&lt;Dictionary&lt;string, string&gt;&gt; erc20s = await mngr.GetERC20Tokens(chain);
 </code></pre>
+<p>In JSON format, here is an example of the returned attributes of each ERC-20 token</p>
+<pre><code class="language-json">  {
+    &quot;token_address&quot;: &quot;0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174&quot;,
+    &quot;name&quot;: &quot;Circle USDC&quot;,
+    &quot;symbol&quot;: &quot;USDC&quot;,
+    &quot;logo&quot;: &quot;ipfs://logo-url.png&quot;,
+    &quot;thumbnail&quot;: &quot;ipfs://thumbnail-logo-url.png&quot;,
+    &quot;decimals&quot;: 6,
+    &quot;balance&quot;: &quot;101&quot;
+  }
+</code></pre>
 <h3 id="get-nft-tokens">Get NFT Tokens</h3>
+<p>Once a player is authenticated, you can get the full list of NFTs (ERC-721 or ERC-1155) that a player owns. The result is an array of all owned tokens and the attributes of each token. </p>
 <pre><code class="language-csharp">List&lt;Dictionary&lt;string, string&gt;&gt; nfts = await mngr.GetNFTTokens(chain);
+</code></pre>
+<pre><code class="language-json">  {
+    &quot;token_address&quot;: &quot;0x4d66898952d879c27bdadb5876f38e38a083eff8&quot;,
+    &quot;token_id&quot;: &quot;token1&quot;,
+    &quot;owner_of&quot;: &quot;0x74bcd46288e661ecea04992d5e8fbe6c29cf6f64&quot;,
+    &quot;block_number&quot;: &quot;27529244&quot;,
+    &quot;block_number_minted&quot;: &quot;22171688&quot;,
+    &quot;amount&quot;: &quot;1&quot;,
+    &quot;contract_type&quot;: &quot;ERC1155&quot;,
+    &quot;name&quot;: &quot;Axie&quot;,
+    &quot;symbol&quot;: &quot;AXS&quot;,
+    &quot;token_uri&quot;: &quot;https://raw.githubusercontent.com/FusedVR/nft.games/master/1/meta.json&quot;,
+    &quot;metadata&quot;: {
+      &quot;\\n  \\\&quot;name\\\&quot;&quot;: &quot;\\\&quot;FusedVR Token\\\&quot;&quot;,
+      &quot;\\n  \\\&quot;description\\\&quot;&quot;: &quot;\\\&quot;This token is an example ERC-1155 asset that can be used to trigger streaming with FusedVR Render Streaming. In other words&quot;,
+      &quot;think of this as token representation of purchasing a game.\\\&quot;&quot;: null,
+      &quot;\\n  \\\&quot;image\\\&quot;&quot;: &quot;\\\&quot;https://raw.githubusercontent.com/FusedVR/nft.games/master/1/FusedVR.png\\\&quot;&quot;,
+      &quot;\\n  \\\&quot;external_url\\\&quot;&quot;: &quot;\\\&quot;https://fusedvr.com/rendering\\\&quot;\\n&quot;
+    }
+  }
 </code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../contribution/" class="btn btn-neutral float-left" title="Contribute to the Docs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../magiclink/" class="btn btn-neutral float-right" title="Using Magic Link">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../nftgame/" class="btn btn-neutral float-right" title="NFT Tickets for Games">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -225,7 +257,7 @@ Web3Manager.CHAIN.bsctestnet
       <span><a href="../../contribution/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../magiclink/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../nftgame/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
