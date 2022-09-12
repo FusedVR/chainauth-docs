@@ -47,13 +47,17 @@ string code = await manager.Register(); //re-register to get new auth code
 
 ### Magic Link
 
-Alternatively, if you would like to provide a clickable experience without a code, you call call the GetMagicLink function after Register.
+Alternatively, if you would like to provide a clickable experience without a code, you call call the GetMagicLink function after Register. If the player is already logged in, magic link will throw an exception, which is recommended to catch. 
 
-This will return a URL, which players can click on to start the authentication process to your application without having to enter a code.
+If the player is not logged in, this function will return a URL, which players can click on to start the authentication process to your application without having to enter a code.
 
 ```csharp
 Web3Manager manager = await Web3Manager.Register("unique id", "appId"); //register the client with the APIs
-string magicLink = await manager.GetMagicLink(); //gets the magic link for the player
+try {
+    string magicLink = await manager.GetMagicLink()); //gets the magic link for the player
+} catch (Exception e) {
+    Debug.LogError(e);
+}
 ```
 
 ### Await Login
