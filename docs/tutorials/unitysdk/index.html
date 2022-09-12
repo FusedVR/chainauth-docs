@@ -150,10 +150,14 @@ if (await manager.AwaitLogin()) { //await player login
 <pre><code class="language-csharp">string code = await manager.Register(); //re-register to get new auth code
 </code></pre>
 <h3 id="magic-link">Magic Link</h3>
-<p>Alternatively, if you would like to provide a clickable experience without a code, you call call the GetMagicLink function after Register.</p>
-<p>This will return a URL, which players can click on to start the authentication process to your application without having to enter a code.</p>
+<p>Alternatively, if you would like to provide a clickable experience without a code, you call call the GetMagicLink function after Register. If the player is already logged in, magic link will throw an exception, which is recommended to catch. </p>
+<p>If the player is not logged in, this function will return a URL, which players can click on to start the authentication process to your application without having to enter a code.</p>
 <pre><code class="language-csharp">Web3Manager manager = await Web3Manager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
-string magicLink = await manager.GetMagicLink(); //gets the magic link for the player
+try {
+    string magicLink = await manager.GetMagicLink()); //gets the magic link for the player
+} catch (Exception e) {
+    Debug.LogError(e);
+}
 </code></pre>
 <h3 id="await-login">Await Login</h3>
 <p>Once you have registered the player and have provided them a means to start the authentication process (via email, code, or magic link), you then need to wait for them to authenticate their wallet. To await for the player to login, you can call the <strong><em>AwaitLogin</em></strong> function. </p>
