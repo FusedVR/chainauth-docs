@@ -123,26 +123,29 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="unity-sdk-guide">Unity SDK Guide</h1>
-<p>The FusedVR ChainAuth Unity SDK is designed to be as simple as possible to integrate into any game or application. The goal of the SDK is to enable you to authenticate your player's Web 3 wallets and enable them to prove ownership of their digital assets like tokens &amp; NFTs. This guide will walk you through how to use the SDK to get access to the SDK, authenticate a player, and then verify the assets the player owns, which you can use however you like in the game. </p>
+<p>The FusedVR ChainAuth Unity SDK is designed to be as simple as possible to integrate into any game or application. The goal of the SDK is to enable you to authenticate your player's crypto wallets and enable them to prove ownership of their digital assets like tokens &amp; NFTs. This guide will walk you through how to use the SDK to get access to the SDK, authenticate a player, and then verify the assets the player owns, which you can use however you like in the game. </p>
 <h2 id="setup-sdk">Setup SDK</h2>
-<p>The ChainAuth Unity SDK is avaliable on <a href="https://github.com/FusedVR/web3-unity-sdk">Github as an open source project</a>. To use the SDK, you will require an Application ID, which you can request on the <a href="https://discord.com/invite/rV8fEAmG5B">FusedVR Discord Server</a>.</p>
+<p>The ChainAuth Unity SDK is avaliable on <a href="https://github.com/FusedVR/chainauth-unity-sdk.git">Github as an open source project</a>. To use the SDK, you will require an Application ID, which you can request on the <a href="https://discord.com/invite/rV8fEAmG5B">FusedVR Discord Server</a>.</p>
 <p>Once you have an Application ID, you can import the Github repo into your repository as a Unity Package. In your Unity Project, open the Package Manager, which is under <strong>Window</strong> <em>&gt;</em> <strong>Package Manager</strong>. Click the <strong>+</strong> icon and select <strong>Add package from git URL...</strong></p>
-<p>This will prompt you to input a URL, in which you should paste the Git URL : <a href="https://github.com/FusedVR/web3-unity-sdk.git">https://github.com/FusedVR/web3-unity-sdk.git</a>. Click <strong>Add</strong>, which begin the process of importing the SDK into your project. </p>
+<p>This will prompt you to input a URL, in which you should paste the Git URL : <a href="https://github.com/FusedVR/chainauth-unity-sdk.git">https://github.com/FusedVR/chainauth-unity-sdk.git</a>. Click <strong>Add</strong>, which begin the process of importing the SDK into your project. </p>
+<p>Once imported, in any script you plan to use the SDK, you will need to import the SDK namespace.</p>
+<pre><code class="language-csharp">using FusedVR.Crypto;
+</code></pre>
 <h2 id="authenticating-players-with-their-wallet">Authenticating Players with their Wallet</h2>
 <p>Once you have installed the SDK, you will need to integrate the Client Registration and Login Sequence into your game in order to authenticate players. The following code snippet shows an example of how you can authenticate players with just a few lines of code. In this section, we will walk through what each of these functions does in the authenticate process for players. </p>
-<pre><code class="language-csharp">Web3Manager manager = await Web3Manager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
+<pre><code class="language-csharp">ChainAuthManager manager = await ChainAuthManager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
 Debug.Log(manager.RegisterCode); //auth code for player to input into the link page received from Registration
 
 if (await manager.AwaitLogin()) { //await player login
     //your game logic here
-    CallAPIs(manager, Web3Manager.CHAIN.eth);
+    CallAPIs(manager, ChainAuthManager.CHAIN.eth);
 }
 </code></pre>
 <h3 id="register-and-get-registration-code">Register and Get Registration Code</h3>
 <p>The first step in using the SDK is Registering the Client. To do so, call the static function <strong><em>Register</em></strong>, which is responsible for calling the <strong><em>Register API</em></strong> for you. THe parameters that are required are a unique ID for this client and the Application ID from above. <strong>NOTE: if the unique ID is an email address, an email will automatically be sent to the player, which will allow them to click on the link and authenticate without the need for a code.</strong></p>
-<pre><code class="language-csharp">Web3Manager manager = await Web3Manager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
+<pre><code class="language-csharp">ChainAuthManager manager = await ChainAuthManager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
 </code></pre>
-<p>The SDK will return a Web3Manager Object, which will enable you to make all the required calls for other supported functionality below. This object will store the Registeration Code that is retured from calling the Register API. </p>
+<p>The SDK will return a ChainAuthManager Object, which will enable you to make all the required calls for other supported functionality below. This object will store the Registeration Code that is retured from calling the Register API. </p>
 <p>You will need to provide this code to the player on a GUI so that they can input the code into <a href="https://link.fusedvr.com">https://link.fusedvr.com</a></p>
 <pre><code class="language-csharp">manager.RegisterCode; //auth code for player to input into the link page received from Registration
 </code></pre>
@@ -152,7 +155,7 @@ if (await manager.AwaitLogin()) { //await player login
 <h3 id="magic-link">Magic Link</h3>
 <p>Alternatively, if you would like to provide a clickable experience without a code, you call call the GetMagicLink function after Register. If the player is already logged in, magic link will throw an exception, which is recommended to catch. </p>
 <p>If the player is not logged in, this function will return a URL, which players can click on to start the authentication process to your application without having to enter a code.</p>
-<pre><code class="language-csharp">Web3Manager manager = await Web3Manager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
+<pre><code class="language-csharp">ChainAuthManager manager = await ChainAuthManager.Register(&quot;unique id&quot;, &quot;appId&quot;); //register the client with the APIs
 try {
     string magicLink = await manager.GetMagicLink()); //gets the magic link for the player
 } catch (Exception e) {
@@ -168,32 +171,32 @@ try {
 <h3 id="authentication-token">Authentication Token</h3>
 <p>Once a player has logged in and authenticated your app, you will receive back a JWT token, which when decoded contains important information, such as the player's wallet address &amp; the signature proof they used to authenticate. A valid token will enable you to call FusedVR APIs and read the state of the blockchain more easily.</p>
 <p>This token is saved in your Player Prefs, so that you can quickly login players between sessions without needing to re-authenticate each time. This requires the Unique ID you used to remain the same between sessions.</p>
-<p>You can get the Bearer Token at any time from a Logged In user through the Web3Manager and Decode it to see the contents of the token, which are stored as a key value pair in a dictionary. </p>
+<p>You can get the Bearer Token at any time from a Logged In user through the ChainAuthManager and Decode it to see the contents of the token, which are stored as a key value pair in a dictionary. </p>
 <pre><code class="language-csharp">string token = manager.GetBearerToken(); //get token
-Dictionary&lt;string, string&gt; tokenContent = Web3Manager.DecodeJWT(token); //decode contents of the token as a key-value pair
+Dictionary&lt;string, string&gt; tokenContent = ChainAuthManager.DecodeJWT(token); //decode contents of the token as a key-value pair
 </code></pre>
 <h3 id="player-address">Player Address</h3>
 <p>As mentioned above, the player's authenticated wallet address is stored within the authentication token. To make it easier to get the player's address, a wrapper function is provided. </p>
-<pre><code class="language-csharp">string address = mngr.GetAddress(); //get the wallet address used for authentication
+<pre><code class="language-csharp">string address = manager.GetAddress(); //get the wallet address used for authentication
 </code></pre>
 <h3 id="select-chain">Select Chain</h3>
 <p>The FusedVR Crypto APIs support a subset of EVM compatiable blockchains &amp; testnets, which stored in the CHAIN sub-class. When you call any of the following functions, you will be required to pass an instance of the CHAIN object, which will indicate which blockchain to query. Here are the currently supported chains:</p>
-<pre><code class="language-csharp">Web3Manager.CHAIN.eth
-Web3Manager.CHAIN.ropsten
-Web3Manager.CHAIN.rinkeby
-Web3Manager.CHAIN.goerli
-Web3Manager.CHAIN.polygon
-Web3Manager.CHAIN.mumbai
-Web3Manager.CHAIN.bsc
-Web3Manager.CHAIN.bsctestnet
+<pre><code class="language-csharp">ChainAuthManager.CHAIN.eth
+ChainAuthManager.CHAIN.ropsten
+ChainAuthManager.CHAIN.rinkeby
+ChainAuthManager.CHAIN.goerli
+ChainAuthManager.CHAIN.polygon
+ChainAuthManager.CHAIN.mumbai
+ChainAuthManager.CHAIN.bsc
+ChainAuthManager.CHAIN.bsctestnet
 </code></pre>
 <h3 id="get-native-balance">Get Native Balance</h3>
 <p>Once a player is authenticated, you can pick any of the supported chains to retrive the native balance in the native currency of the player's wallet address. For example, on the ethereum blockchain, you would receive the balance of the player in <a href="https://www.investopedia.com/terms/w/wei.asp">Wei</a>. </p>
-<pre><code class="language-csharp">string balance = await mngr.GetNativeBalance(chain);
+<pre><code class="language-csharp">string balance = await manager.GetNativeBalance(chain);
 </code></pre>
 <h3 id="get-erc-20-tokens">Get ERC-20 Tokens</h3>
 <p>Once a player is authenticated, you can get the full list of ERC-20 Tokens (or equivalent on other chains) that a player owns. The result is an array of all owned tokens and the attributes of each token. </p>
-<pre><code class="language-csharp">List&lt;Dictionary&lt;string, string&gt;&gt; erc20s = await mngr.GetERC20Tokens(chain);
+<pre><code class="language-csharp">List&lt;Dictionary&lt;string, string&gt;&gt; erc20s = await manager.GetERC20Tokens(chain);
 </code></pre>
 <p>In JSON format, here is an example of the returned attributes of each ERC-20 token</p>
 <pre><code class="language-json">  {
@@ -208,7 +211,7 @@ Web3Manager.CHAIN.bsctestnet
 </code></pre>
 <h3 id="get-nft-tokens">Get NFT Tokens</h3>
 <p>Once a player is authenticated, you can get the full list of NFTs (ERC-721 or ERC-1155) that a player owns. The result is an array of all owned tokens and the attributes of each token. </p>
-<pre><code class="language-csharp">List&lt;Dictionary&lt;string, string&gt;&gt; nfts = await mngr.GetNFTTokens(chain);
+<pre><code class="language-csharp">List&lt;Dictionary&lt;string, string&gt;&gt; nfts = await manager.GetNFTTokens(chain);
 </code></pre>
 <pre><code class="language-json">  {
     &quot;token_address&quot;: &quot;0x4d66898952d879c27bdadb5876f38e38a083eff8&quot;,
