@@ -4,7 +4,7 @@ The FusedVR ChainAuth Unity SDK is designed to be as simple as possible to integ
 
 ## Setup SDK
 
-The ChainAuth Unity SDK is avaliable on [Github as an open source project](https://github.com/FusedVR/chainauth-unity-sdk.git). To use the SDK, you will require an Application ID, which you can request on the [FusedVR Discord Server](https://discord.com/invite/rV8fEAmG5B).
+The ChainAuth Unity SDK is avaliable on [Github as an open source project](https://github.com/FusedVR/chainauth-unity-sdk.git). To use the SDK, you will require an Application ID, which you can get by following the [Getting Started Guide](docs/get-started/).
 
 Once you have an Application ID, you can import the Github repo into your repository as a Unity Package. In your Unity Project, open the Package Manager, which is under **Window** *>* **Package Manager**. Click the **+** icon and select **Add package from git URL...**
 
