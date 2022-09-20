@@ -108,19 +108,35 @@
               
                 <h1 id="sell-your-game-as-an-nft">Sell Your Game as an NFT</h1>
 <p>In this guide, we will showcase an end to end open source project that demonstrates how your users can mint NFT tickets for your game or application and how that can be authenticated within Unity using the FusedVR Chain Auth Platform and SDK. This use case serves as a way to not only sell tickets to your game, but also give players control of owning your game, just like a physical game cartridge. </p>
-<p>The Unity project and front-end minting HTML code are both avaliable on <a href="https://github.com/FusedVR/chainauth-unity">Github in the master and gh-pages branches</a>, respectively. </p>
+<p>The Unity project and front-end minting HTML code are both avaliable on <a href="https://github.com/FusedVR/chainauth-unity-game-nft">Github in the master and gh-pages branches</a>, respectively. </p>
 <h2 id="components">Components</h2>
 <h3 id="mint-your-own-nft-html-page">Mint your own NFT HTML Page</h3>
-<p>To try out the HTML page, first head over to <a href="https://fusedvr.github.io/chainauth-unity">https://fusedvr.github.io/chainauth-unity</a>, which is where the HTML client for minting a NFT is hosted. Currently, the demo is only working on the Polygon Mumbai Testnet network, but the Javascript code that controls this is located in gh-pages branch under <a href="https://github.com/FusedVR/chainauth-unity/blob/gh-pages/assets/nfts/web3modal.js">assets/nfts/web3modal.js</a>, where you can change the network.</p>
+<p>To try out the HTML page, first head over to <a href="https://fusedvr.github.io/chainauth-unity-game-nft/">https://fusedvr.github.io/chainauth-unity-game-nft/</a>, which is where the HTML client for minting a NFT is hosted. Currently, the demo is only working on the Polygon Mumbai Testnet network, but the Javascript code that controls this is located in gh-pages branch under <a href="https://github.com/FusedVR/chainauth-unity-game-nft/blob/gh-pages/assets/nfts/web3modal.js">assets/nfts/web3modal.js</a>, where you can change the network.</p>
+<p>To do a test mint, you can create a Wallet and get some Mumbai Testnet Tokens on the <a href="https://faucet.polygon.technology/">faucet</a> to test the minting page. </p>
 <p>It leverages the <a href="https://github.com/WalletConnect/web3modal">Web3 Modal</a> open source project to allow wallets to connect via native integrations like Metamask or Wallet Connect.  </p>
 <p>The HTML page is responsible for allowing you to mint your own custom NFT with its own unique ID. </p>
 <h3 id="nft-smart-contract">NFT Smart Contract</h3>
 <p>The smart contract is an open sourced ERC-721 contract and avaliable <a href="https://github.com/FusedVR/chainauth-unity/blob/gh-pages/chainnft.sol">on Github</a>. It was built using the <a href="https://docs.openzeppelin.com/contracts/4.x/wizard">Open Zepplin Wizard</a>, which enabled minting &amp; burning of NFTs. You can use the same tool to create your own custom contract and then deploy it using a tool like <a href="https://remix-project.org/">Remix</a>. </p>
 <h3 id="unity-project">Unity Project</h3>
-<p>The Unity Project is located on the <a href="https://github.com/FusedVR/chainauth-unity/tree/master">master branch</a> and the main map generation is based on the project from <a href="https://catlikecoding.com/unity/tutorials/hex-map/">Catlike Coding</a>. The project utilizes the FusedVR Chain Auth solution in order to authenticate a player's wallet and confirm ownership of their assets. By logging into the service with their e-mail address, users are able to sign a confirmation message from the wallet of their choice, whether it is desktop or mobile. Then using the SDK, the game can see the list of NFTs owned by the player. </p>
+<p>The Unity Project is located on the <a href="https://github.com/FusedVR/chainauth-unity-game-nft/tree/master">master branch</a> and the main map generation is based on the project from <a href="https://catlikecoding.com/unity/tutorials/hex-map/">Catlike Coding</a>. The project utilizes the FusedVR Chain Auth solution in order to authenticate a player's wallet and confirm ownership of their assets. By logging into the service with their e-mail address, users are able to sign a confirmation message from the wallet of their choice, whether it is desktop or mobile. Then using the SDK, the game can see the list of NFTs owned by the player. </p>
 <p>With the list of NFTs owned by the player, we can generate the maps using the IDs as a random seed for generation. This ensures the maps that are generated are unique to the player's token id and can only be generated if a player owns the token. </p>
 <h2 id="putting-it-all-together">Putting it all Together</h2>
-<p>Coming soon!</p>
+<p>Once you have minted a NFT on the demo site, you can use your wallet to authenticate against the Unity project and prove ownership of the NFT. To run the Unity Project, you will require an Application ID, which you can get by following the <a href="/docs/get-started/">Getting Started Guide</a>.</p>
+<p>You will then need to input the Application ID into the <a href="https://github.com/FusedVR/chainauth-unity-game-nft/blob/master/Assets/NFT%20Island/Scripts/FusedAuth.cs">FusedAuth.cs script</a> in the Login Function. The FusedAuth script is a <a href="https://gamedevbeginner.com/singletons-in-unity-the-right-way/">Singleton</a> class that manages the ChainAuthManager for the game between scenes.  </p>
+<p>There are two scenes in the project: A <strong>Login Scene</strong> (called Start under /NFT Island/Scenes) and the <strong>Map Scene</strong> (called NFT Biomes under /NFT Island/Scenes)</p>
+<p><img alt="Unity Project Scenes" src="/docs/resources/samples/scenes.png" /></p>
+<p>You can then run the project from the Start Scene, which will prompt you for an email address. Input your email, which will register your client with the Chain Auth backend to begin the validation. You should receive an email that contains a link that will re-direct to <a href="https://link.fusedvr.com">https://link.fusedvr.com</a>.</p>
+<p><img alt="Login Scene Unity" src="/docs/resources/samples/loginscene.png" /></p>
+<p>As a player, you would then receive a prompt to choose the wallet you would like to authenticate with.</p>
+<p><img alt="Unity Project Scenes" src="/docs/resources/samples/web3modal.png" /></p>
+<p>Once you choose the wallet, you will then receive a prompt to sign a random message, which by doing so will prove your ownership of the wallet and send that proof back to the game.</p>
+<p><img alt="Unity Project Scenes" src="/docs/resources/samples/signature.png" /></p>
+<p>Once successfully signed, you can head back to the game, which will now transition to the Map scene. Now that the player has fully authenticated, you can start querying the SDK for assets that are owned by the player. This occurs in the <a href="https://github.com/FusedVR/chainauth-unity-game-nft/blob/master/Assets/NFT%20Island/Scripts/NFTGenerator.cs">NFTGenerator.cs</a> script, which checks for the list of NFT ids that the player owns. </p>
+<p>Each ID is used as a random seed to generate the map, thus providing a unique experience for players based on the assets they own. This same principle could be applied to checking whether or not a player owns a token that represents your game.</p>
+<p>Players can then select any of the IDs that they own to view the generated map.</p>
+<p><img alt="NFT 777" src="/docs/resources/samples/nft1.png" /></p>
+<p>Using the dropdown, players can select any of the other NFTs that they own to view those assets as well.</p>
+<p><img alt="NFT 2" src="/docs/resources/samples/nft2.png" /></p>
               
             </div>
           </div><footer>
