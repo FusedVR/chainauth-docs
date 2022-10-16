@@ -11,7 +11,7 @@ The only **secure** way to prove that players own a given wallet is to ask them 
 
 ChainAuth enables developers to **either** provide players a one time code for authentication or send them a magic link email to their players to start the authentication process. By going to [https://link.fusedvr.com](https://link.fusedvr.com), players can input that code in the browser, which will request a signature from their web browser wallet, hardware wallet, or mobile wallet through Wallet Connect. Players will sign a randomly generated message (nonce), which is sent back to your game along with the validated wallet address. Once validated, you can now read the state of the blockchain to see what NFTs, tokens, and assets a player has on any chain associated with that address using the APIs provided.  
 
-[![Connect to Any Wallet](https://img.youtube.com/vi/8bQfi_mL6T4/maxresdefault.jpg)](https://www.youtube.com/watch?v=8bQfi_mL6T4)
+[![Connect to Any Wallet](https://img.youtube.com/vi/j7tdXvyug7E/maxresdefault.jpg)](https://www.youtube.com/watch?v=j7tdXvyug7E)
 
 ## Why FusedVR ChainAuth
 
