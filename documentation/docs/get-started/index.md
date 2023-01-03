@@ -4,7 +4,7 @@ The FusedVR ChainAuth APIs are designed to be as simple as possible to integrate
 
 First you will need an Application ID for your project. To create one, log into the Chain Auth console at [https://console.fusedvr.com](https://console.fusedvr.com). To log in, you will need an email and a crypto wallet such as [Metamask](https://metamask.io/). Sign the message requested with your crypto wallet and then verify your e-mail address to contiue into the Console. 
 
-![Console Login](../../resources/getting-started/login.png)
+![Console Login](../resources/getting-started/login.png)
 
 ## Create Application
 
@@ -14,11 +14,11 @@ Once logged into the console, you will need to create an application, which will
 - Application Description
 - Profile Image
 
-![Create App](../../resources/getting-started/createapp.png)
+![Create App](../resources/getting-started/createapp.png)
 
 After you have created an application, you will see the application page, where you can update the data about the application and also get the application id. This is the ID you need to input into the SDK. 
 
-![Show App](../../resources/getting-started/showapp.png)
+![Show App](../resources/getting-started/showapp.png)
 
 ## Application ID
 
